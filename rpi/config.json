@@ -1,0 +1,53 @@
+{
+  "canvasbg": "white", 
+  "mainpad": [
+    [
+      1, 
+      1
+    ], 
+    [
+      50, 
+      1
+    ]
+  ], 
+  "picsatatime": 1, 
+  "directories": [
+    "Downloads/WnCC", 
+    "Downloads/Hostel5", 
+    "Downloads/Culturals", 
+    "Downloads/Academics", 
+    "Downloads/Technical", 
+    "Downloads/Sports"
+  ], 
+  "refreshcount": {
+    "1": 10, 
+    "2": 10, 
+    "4": 10
+  }, 
+  "tickerrectcolor": "black", 
+  "tickerspeed": [
+    1, 
+    10
+  ], 
+  "tilingpad": [
+    2, 
+    2
+  ], 
+  "delimiter": "         ", 
+  "logoscale": [
+    200, 
+    40
+  ], 
+  "picspeed": 4000, 
+  "tickerstyle": [
+    "white", 
+    [
+      "Helvectica", 
+      "24"
+    ]
+  ], 
+  "tickerpad": [
+    0, 
+    2
+  ]
+}
