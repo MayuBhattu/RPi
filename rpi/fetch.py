@@ -37,7 +37,7 @@ def fetch_data():
     return data
 
 def fetchInsti():
-    InstiResponse = urlopen(INSTIURL, urlopen)
+    InstiResponse = urlopen(INSTIURL, context=ctx)
     Data = json.loads(InstiResponse.read())
     return Data
 
