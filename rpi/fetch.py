@@ -6,6 +6,7 @@ except:
 import json
 import os
 import datetime
+import ssl
 
 
 FROM = "hostel5"
@@ -14,6 +15,10 @@ BASEURL = 'http://noticeboard.wncc-iitb.org/'
 INSTIURL = 'https://insti.app/api/events'
 BASE_DIR = 'Downloads/'
 Insti_dir = 'Downloads/InstiApp/'
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
 
 def urljoin(*args):
@@ -27,12 +32,12 @@ def urljoin(*args):
 
 def fetch_data():
     url = urljoin(BASEURL, 'list/', '?from=' + FROM)
-    response = urlopen(url)
+    response = urlopen(url, context=ctx)
     data = json.loads(response.read())
     return data
 
 def fetchInsti():
-    InstiResponse = urlopen(INSTIURL)
+    InstiResponse = urlopen(INSTIURL, urlopen)
     Data = json.loads(InstiResponse.read())
     return Data
 
