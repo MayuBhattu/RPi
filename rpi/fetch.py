@@ -171,11 +171,15 @@ if __name__ == '__main__':
     print("Script running at- " + str(datetime.datetime.now()))
 
 
-
+    print("InstiApp urls")
     Insti_online_list = InstiApp_online(InstiAppData)
+    print("updating InstiApp images")
     Insti_existing_files = prepare_existing_Insti_list(Insti_online_list)
+    print("Downloading InstiApp images")
     download_files(Insti_online_list, Insti_existing_files)
-
+    print("Hostel noticeboard urls")
     online_list = prepare_online_list(data)
+    print("updating Hostel images")
     existing_files = prepare_existing_list(online_list)
+    print("Downloading Hostel images")
     download_files(online_list, existing_files)
