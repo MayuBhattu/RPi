@@ -1,0 +1,10 @@
+network={
+	ssid="IITB-Wireless"
+	scan_ssid=1
+	key_mgmt=WPA-EAP
+	identity="mayubhattu"
+	password=hash:4bf8fd57192591db7a85dd0feafc706c
+	eap=PEAP
+	phase1="peaplabel=0"
+	phase2="auth=MSCHAPV2"
+}
