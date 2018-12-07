@@ -6,7 +6,7 @@
 # Meant to run on Raspian
 
 
-from Tkinter import *
+from tkinter import *
 from threading import *
 from PIL import Image
 from PIL import ImageTk
