@@ -8,7 +8,8 @@
 
 from Tkinter import *
 from threading import *
-from PIL import Image, ImageTk
+from PIL import Image
+from PIL import ImageTk
 import json
 import os
 import datetime
@@ -17,7 +18,7 @@ import datetime
 class App:
 
     def __init__(self, master):
-        print "Starting Noticeboard: " + (datetime.datetime.fromtimestamp(int("1284101485")).strftime('%Y-%m-%d %H:%M:%S'))
+        print ("Starting Noticeboard: ") , (datetime.datetime.fromtimestamp(int("1284101485")).strftime('%Y-%m-%d %H:%M:%S'))
 
         self.config = {'directories': ['Academics', 'Cultural', 'Sports', 'Technical', 'Hostel'],
                        'delimiter': "         ",
@@ -42,8 +43,8 @@ class App:
             self.config = json.loads(x.read())
             x.close()
         except Exception as e:
-            print "Error loading config, using default config"
-            print e
+            print ("Error loading config, using default config")
+            print (e)
 
         self.tickerlist = ""
         self.piclist = []
@@ -66,7 +67,7 @@ class App:
         self.tickertext = self.can.create_text(self.can.canvasx(0), self.can.canvasy(
             0), text=self.tickerlist,  fill=self.config['tickerstyle'][0], font=self.config['tickerstyle'][1])
         a = self.can.bbox(self.tickertext)
-        print a
+        print (a)
         self.imgbbox = [self.windowd[0] - self.config['mainpad'][0][0] - self.config['mainpad'][0][1], self.windowd[1] - self.config[
             'tickerpad'][0] - self.config['tickerpad'][1] - (a[3] - a[1]) - self.config['mainpad'][1][0] - self.config['mainpad'][1][1]]
         self.getpiclist()
@@ -79,7 +80,7 @@ class App:
         if self.config['picsatatime'] == 4:
             singleimgbox[1] = singleimgbox[1] / \
                 2 - self.config['tickerpad'][1] / 2
-        print "Recommended image size: " + str(singleimgbox[0]) + "x" + str(singleimgbox[1]) + " (Screen size: " + str(self.windowd[0]) + "x" + str(self.windowd[1]) + ")"
+        print ("Recommended image size: ") , str(singleimgbox[0]) , "x" , str(singleimgbox[1]) , " (Screen size: " , str(self.windowd[0]) , "x" , str(self.windowd[1]) + ")"
         self.can.move(
             self.tickertext, -a[0], self.windowd[1] + a[1] - self.config['tickerpad'][1])
         self.tickerstate = 0
@@ -185,7 +186,7 @@ class App:
             self.tickerlist = self.config['delimiter'].join(temp).replace(
                 '\n', self.config['delimiter']) if temp != [] else self.tickerlist
         except IOError as e:
-            print "I/O error({0}): {1}".format(e.errno, e.strerror)
+            print ("I/O error({0}): {1}".format(e.errno, e.strerror))
 
     def getpiclist(self):
 
@@ -244,9 +245,9 @@ class App:
                                                               0], self.imgbbox[1] / 2 - self.config['tilingpad'][1]))
                             self.photos[i2][
                                 j + jd] = ImageTk.PhotoImage(self.photos[i2][j + jd])
-            print "Image fetch&parse successful"
+            print ("Image fetch&parse successful")
         except IOError as e:
-            print "I/O error({0}): {1}".format(e.errno, e.strerror)
+            print ("I/O error({0}): {1}".format(e.errno, e.strerror))
 
     def updLogo(self):
         self.logoC = self.can.create_image(
