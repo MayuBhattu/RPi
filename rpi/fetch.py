@@ -33,12 +33,12 @@ def urljoin(*args):
 def fetch_data():
     url = urljoin(BASEURL, 'list/', '?from=' + FROM)
     response = urlopen(url, context=ctx)
-    data = json.loads(response.read())
+    data = json.loads(response.read().decode('utf-8'))
     return data
 
 def fetchInsti():
     InstiResponse = urlopen(INSTIURL, context=ctx)
-    Data = json.loads(InstiResponse.read())
+    Data = json.loads(InstiResponse.read().decode('utf-8'))
     return Data
 
 def prepare_online_list(data):
